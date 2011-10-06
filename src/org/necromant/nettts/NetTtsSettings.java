@@ -61,6 +61,11 @@ private void LoadPrefs(){
     String port = sharedPreferences.getString("port", "8080");
     EditText prt = (EditText) findViewById(R.id.port);
     prt.setText(port);
+    
+    EditText loc = (EditText) findViewById(R.id.loc);
+    loc.setText(sharedPreferences.getString("locale", "ru_RU"));
+    
+    
     CheckBox auto = (CheckBox) findViewById(R.id.autostart);
     String a = sharedPreferences.getString("autostart", "NO");
     Log.d(TAG, "=======>" + a);
@@ -72,7 +77,9 @@ private void LoadPrefs(){
 private void SavePrefs()
 {
 	EditText prt = (EditText) findViewById(R.id.port);
+	EditText loc = (EditText) findViewById(R.id.loc);
 	SavePreferences("port", prt.getText().toString());
+	SavePreferences("locale", loc.getText().toString());
 	CheckBox auto = (CheckBox) findViewById(R.id.autostart);
 	if (auto.isChecked())
 	{

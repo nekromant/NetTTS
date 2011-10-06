@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.Boolean;
 import java.net.ServerSocket;
@@ -23,11 +24,13 @@ public class NetTTSService extends Service {
 	private boolean started = false;
 	private TCPServer srv = new TCPServer();
 	private Thread t = new Thread(srv);
+	private String locale;
 	SharedPreferences prefMgr;
 
 	public class TCPServer implements Runnable {
 		public int SERVERPORT = 4444;
 		public TextToSpeech mTts;
+		boolean running = true;
 
 		private OnInitListener onInit;
 
@@ -37,7 +40,7 @@ public class NetTTSService extends Service {
 				// Set preferred language to US english.
 				// Note that a language may not be available, and the result
 				// will indicate this.
-				Locale loc = new Locale("ru_RU");
+				Locale loc = new Locale(locale);
 				int result = srv.mTts.setLanguage(loc);
 				// Try this someday for some interesting results.
 				// int result mTts.setLanguage(Locale.FRANCE);
@@ -65,12 +68,22 @@ public class NetTTSService extends Service {
 		}
 
 		public void run() {
+			ServerSocket serverSocket=null;
 			try {
 				Log.d(TAG, "Server is up");
-				ServerSocket serverSocket = new ServerSocket(SERVERPORT);
-				while (true) {
-					Socket client = serverSocket.accept();
+				serverSocket = new ServerSocket(SERVERPORT);
+				serverSocket.setSoTimeout(1000);
+				
+				while (running) {
+					Socket client = null;
+					try {
+					client = serverSocket.accept();
 					Log.d(TAG, "Incoming connection.");
+					} catch (Exception e) {
+						//Timeout on accept
+					}
+					if (client != null)
+					{
 					try {
 						BufferedReader in = new BufferedReader(
 								new InputStreamReader(client.getInputStream()));
@@ -80,17 +93,24 @@ public class NetTTSService extends Service {
 																	// to queue.
 								null);
 					} catch (Exception e) {
-						Log.e(TAG, "Oooops, error: ", e);
+						Log.e(TAG, "Got exception: ", e);
 					} finally {
 						client.close();
 						Log.d(TAG, "Connection closed");
 					}
-
+					}
 				}
-
 			} catch (Exception e) {
 				Log.e(TAG, "Server error: ", e);
+				return;
 			}
+			try {
+				serverSocket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return;
 		}
 	}
 
@@ -104,10 +124,12 @@ public class NetTTSService extends Service {
 		Toast.makeText(this, "NetTTS service created", Toast.LENGTH_LONG)
 				.show();
 		Log.d(TAG, "onCreate");
-		srv.mTts = new TextToSpeech(this, (OnInitListener) this.srv.onInit);
+		
 		Context c = getApplicationContext();
 		prefMgr = c.getSharedPreferences("NetTTS", MODE_PRIVATE);
 		srv.SERVERPORT = Integer.parseInt(prefMgr.getString("port", "8080"));
+		this.locale = prefMgr.getString("locale", "ru_RU");
+		srv.mTts = new TextToSpeech(this, (OnInitListener) this.srv.onInit);
 		// player = MediaPlayer.create(this, R.raw.braincandy);
 		// player.setLooping(false); // Set looping
 	}
@@ -130,18 +152,18 @@ public class NetTTSService extends Service {
 
 	@Override
 	public void onDestroy() {
-
-		Toast.makeText(this, "NetTTS service destroyed", Toast.LENGTH_LONG)
+		Toast.makeText(this, "Stopping server", Toast.LENGTH_LONG)
 				.show();
 		Log.d(TAG, "Stopping service");
 		try {
-			t.join(5000);
+			srv.running=false;
+			t.join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			Log.e(TAG, "Thread doesn't want to join");
 			e.printStackTrace();
 		}
-		// player.stop();
+		Log.d(TAG, "Service stopped, ok");	
 	}
 
 	@Override

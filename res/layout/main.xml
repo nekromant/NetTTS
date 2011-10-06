@@ -12,12 +12,24 @@
             </EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/autostart" android:id="@+id/autostart"></CheckBox>
+            <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="@string/locale"></TextView>
+            <EditText android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/loc"></EditText>
         </TableRow>
         <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <Button android:layout_width="wrap_content" android:text="@string/btn_start" android:layout_height="wrap_content" android:id="@+id/start"></Button>
-            <Button android:layout_width="wrap_content" android:text="@string/btn_kill" android:layout_height="wrap_content" android:id="@+id/kill"></Button>
+            <CheckBox android:text="@string/autostart" android:id="@+id/autostart" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow3"></TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow3">
+            <Button android:id="@+id/kill" android:layout_width="wrap_content" android:text="@string/btn_kill" android:layout_height="wrap_content"></Button>
+            <Button android:id="@+id/start" android:layout_height="wrap_content" android:text="@string/btn_start" android:layout_width="wrap_content"></Button>
+        </TableRow>
     </TableLayout>
+    <RelativeLayout android:layout_width="match_parent" android:id="@+id/relativeLayout1" android:layout_height="wrap_content">
+    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView android:text="@string/hint" android:layout_width="wrap_content" android:id="@+id/textView3" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content"></TextView>
+        <TextView android:text="@string/sug" android:layout_width="wrap_content" android:id="@+id/textView5" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content"></TextView>
+        <TextView android:text="@string/contact" android:layout_width="wrap_content" android:id="@+id/textView6" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content"></TextView>
+        <TextView android:text="@string/about" android:layout_width="wrap_content" android:id="@+id/textView4" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content"></TextView>
+        <TextView android:text="@string/site" android:layout_width="wrap_content" android:id="@+id/textView7" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
 </LinearLayout>

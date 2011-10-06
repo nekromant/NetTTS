@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="org.necromant.nettts"
       android:versionCode="1"
-      android:versionName="1.0" android:installLocation="auto">
+      android:versionName="0.1" android:installLocation="auto">
 
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
