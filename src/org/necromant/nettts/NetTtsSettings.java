@@ -50,14 +50,14 @@ private Locale Locale(String string) {
 	}
 
 private void SavePreferences(String key, String value){
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    SharedPreferences sharedPreferences = getSharedPreferences("NetTTS", MODE_PRIVATE);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putString(key, value);
     editor.commit();
    }
 
 private void LoadPrefs(){
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    SharedPreferences sharedPreferences = getSharedPreferences("NetTTS", MODE_PRIVATE);
     String port = sharedPreferences.getString("port", "8080");
     EditText prt = (EditText) findViewById(R.id.port);
     prt.setText(port);
