@@ -1,0 +1,26 @@
+Necromant's NetTTS
+-------------------
+
+This is a simple piece of software, that allows you to synth text from your 
+android device remotely. A TTS engine installed is a must =). 
+
+
+USAGE
+-----
+Install, set the port. Press Save'n'start,
+On the host pc run: 
+echo "Hello" | nc 192.168.0.25 4444
+replace ip and port with the actual IP and port. 
+Or, on windoze, telnet 192.168.0.25 4444
+enter a line of text, press enter. 
+All the input is queued for synth. 
+
+TODO
+----
+ACL (aka access control)
+Language Code Selection in config
+Find out how to get vizualisation for the TTS stream
+
+LICENSE
+-------
+GNU GPL GPLv3 
