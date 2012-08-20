@@ -12,4 +12,5 @@
     <string name="site">http://necromant.ath.cx/</string>
     <string name="contact">contact@necromant.ath.cx</string>
     <string name="sug">Mail bugs and suggestions here:</string>
+    <string name="authtag">Auth tag (blank for none)</string>
 </resources>
