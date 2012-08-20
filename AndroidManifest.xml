@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.necromant.nettts"
-      android:versionCode="1"
-      android:versionName="0.1" android:installLocation="auto">
+      package="org.ncrmnt.nettts"
+      android:versionCode="2"
+      android:versionName="0.2" >
 
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-sdk android:maxSdkVersion="14" android:minSdkVersion="7"/>
 
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name">
         <activity android:name=".NetTtsSettings"
                   android:label="@string/app_name">
             <intent-filter>
@@ -18,7 +19,7 @@
         </activity>
      <service android:enabled="true" android:name=".NetTTSService"  android:process=":remote" >
      <intent-filter>
-		<action android:name="org.necromant.nettts.NetTTSService">
+		<action android:name="org.ncrmnt.nettts.NetTTSService">
 		</action>
 	</intent-filter>
      </service>
