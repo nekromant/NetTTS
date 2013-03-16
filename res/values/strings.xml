@@ -3,11 +3,11 @@
     <string name="hello">Hello World, NetTtsSettings!</string>
     <string name="app_name">Necromant\'s NetTTS</string>
     <string name="port">8080</string>
-    <string name="btn_start">Save and (re)start</string>
+    <string name="btn_start">(Re)start</string>
     <string name="btn_kill">Kill service!</string>
-    <string name="autostart">Start at boot automagically</string>
+    <string name="autostart">Start at boot</string>
     <string name="locale">Locale to use:</string>
-    <string name="hint">Set the locale to the language code you would like to use by default (e.g. en_US, ru_RU)</string>
+    <string name="hint">Set the locale to the language code you would like to use by default (e.g. en_US, ru_RU). If auth tag is specified, it should on first line of input text.</string>
     <string name="about"> (c) Necromant 2011  2012</string>
     <string name="site">http://ncrmnt.org/</string>
     <string name="contact">nettts@ncrmnt.org</string>
