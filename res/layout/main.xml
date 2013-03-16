@@ -4,9 +4,17 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <TableLayout
         android:id="@+id/tableLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
         <TableRow
@@ -18,8 +26,7 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Port to run at: "
-                android:textAppearance="?android:attr/textAppearanceLarge" >
+                android:text="Port to run at: " >
             </TextView>
 
             <EditText
@@ -43,8 +50,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/locale"
-                android:textAppearance="?android:attr/textAppearanceLarge" >
+                android:text="@string/locale" >
             </TextView>
 
             <EditText
@@ -63,17 +69,16 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/authtag"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/authtag" />
 
             <EditText
                 android:id="@+id/authtag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="6" />
         </TableRow>
 
-        <TableRow
+        <LinearLayout
             android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
@@ -84,28 +89,36 @@
                 android:layout_height="wrap_content"
                 android:text="@string/autostart" >
             </CheckBox>
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1.0" >
 
             <Button
                 android:id="@+id/kill"
-                android:layout_width="wrap_content"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_kill" >
             </Button>
 
             <Button
                 android:id="@+id/start"
-                android:layout_width="wrap_content"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_start" >
             </Button>
-        </TableRow>
-    </TableLayout>
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -123,8 +136,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hint"
-            android:textAppearance="?android:attr/textAppearanceMedium" >
+            android:text="@string/hint" >
         </TextView>
 
         <TextView
@@ -159,5 +171,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium" >
         </TextView>
     </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
