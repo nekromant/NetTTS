@@ -2,7 +2,7 @@
 <resources>
     <string name="hello">Hello World, NetTtsSettings!</string>
     <string name="app_name">Necromant\'s NetTTS</string>
-    <string name="port">8080</string>
+    <string name="port">4444</string>
     <string name="btn_start">(Re)start</string>
     <string name="btn_kill">Kill service!</string>
     <string name="autostart">Start at boot</string>

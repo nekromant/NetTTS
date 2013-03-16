@@ -140,7 +140,7 @@ public class NetTTSService extends Service {
 
 		Context c = getApplicationContext();
 		prefMgr = c.getSharedPreferences("NetTTS", MODE_PRIVATE);
-		srv.SERVERPORT = Integer.parseInt(prefMgr.getString("port", "8080"));
+		srv.SERVERPORT = Integer.parseInt(prefMgr.getString("port", "4444"));
 		this.locale = prefMgr.getString("locale", "ru_RU");
 		this.authtag = prefMgr.getString("authtag", "");
 		Log.d(TAG, "Creating service, locale is: " + this.locale);

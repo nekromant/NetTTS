@@ -61,7 +61,7 @@ private void SavePreferences(String key, String value){
 
 private void LoadPrefs(){
     SharedPreferences sharedPreferences = getSharedPreferences("NetTTS", MODE_PRIVATE);
-    String port = sharedPreferences.getString("port", "8080");
+    String port = sharedPreferences.getString("port", "4444");
     EditText prt = (EditText) findViewById(R.id.port);
     prt.setText(port);
     
