@@ -40,7 +40,7 @@ public class NetTTSService extends Service {
 			int result = srv.mTts.setLanguage(loc);
 			if (result == TextToSpeech.LANG_MISSING_DATA
 					|| result == TextToSpeech.LANG_NOT_SUPPORTED) {
-				// Lanuage data is missing or the language is not supported.
+				// Language data is missing or the language is not supported.
 				Log.e(TAG, "Language is not available");
 			} else
 				Log.d(TAG, "language switch successful");
@@ -96,7 +96,7 @@ public class NetTTSService extends Service {
 										+ tokens[i + 1]);
 								locale = tokens[i + 1];
 								setLanguage();
-								str="";
+								str = "";
 							} else if (tokens[i].equals("/shutup")) {
 								mode = TextToSpeech.QUEUE_FLUSH;
 								str = str.replace("/shutup", "");
@@ -121,7 +121,6 @@ public class NetTTSService extends Service {
 				serverSocket.close();
 				mTts.shutdown();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return;
@@ -156,7 +155,6 @@ public class NetTTSService extends Service {
 			srv.running = false;
 			t.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			Log.e(TAG, "Thread doesn't want to join");
 			e.printStackTrace();
 		}
