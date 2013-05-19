@@ -13,7 +13,6 @@
         android:orientation="vertical">
 
     <TableLayout
-        android:id="@+id/tableLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
@@ -23,7 +22,6 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pref_port" >
@@ -42,12 +40,10 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/locale" >
@@ -61,12 +57,10 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/authtag" />
@@ -79,7 +73,6 @@
         </TableRow>
 
         <LinearLayout
-            android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
@@ -95,7 +88,6 @@
     </TableLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -121,26 +113,22 @@
 
 
     <RelativeLayout
-        android:id="@+id/relativeLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hint" >
         </TextView>
 
         <TextView
-            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sug"
@@ -148,15 +136,21 @@
         </TextView>
 
         <TextView
-            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/contact"
+            android:autoLink="email"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/issue_tracker"
+            android:autoLink="web"
             android:textAppearance="?android:attr/textAppearanceMedium" >
         </TextView>
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/about"
@@ -164,10 +158,10 @@
         </TextView>
 
         <TextView
-            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/site"
+            android:autoLink="web"
             android:textAppearance="?android:attr/textAppearanceMedium" >
         </TextView>
     </LinearLayout>
