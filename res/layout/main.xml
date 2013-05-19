@@ -26,7 +26,7 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Port to run at: " >
+                android:text="@string/pref_port" >
             </TextView>
 
             <EditText
