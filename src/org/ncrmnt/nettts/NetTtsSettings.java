@@ -1,7 +1,5 @@
 package org.ncrmnt.nettts;
 
-
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -25,9 +23,6 @@ import android.util.Log;
 import android.content.SharedPreferences;
 
 
-
-
-
 public class NetTtsSettings extends Activity {
 	/** Called when the activity is first created. */
 	private TextToSpeech mTts;
@@ -48,7 +43,6 @@ public class NetTtsSettings extends Activity {
 
 
 private Locale Locale(String string) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
