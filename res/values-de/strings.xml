@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_start">(Neu)start</string>
+    <string name="btn_kill">Dienst beenden</string>
+    <string name="autostart">Beim hochfahren starten</string>
+    <string name="locale">Ausgabesprache</string>
+    <string name="hint">Wähle als Ausgabesprache die Sprache die du standardmäßig zur Sprachausgabe benutzten willst (zum Beispiel en_US, ru_RU, de_DE). Falls du nicht möchtest, dass jeder Text von deinem Gerät vorlesen lassen kann solltest du einen Schlüssel vergeben, der in der ersten Zeile übertragen werden muss.
+    \nUm Text vorlesen zu lassen verbinde dich mit telnet oder netcat auf den eingestellten Netzwerkport deines Gerätes.</string>
+    <string name="sug">Sendet Fehlerberichte und Vorschläge an:</string>
+    <string name="authtag">Schlüssel (optional)</string>
+    <string name="pref_port">TCP Netzwerkport</string>
+</resources>

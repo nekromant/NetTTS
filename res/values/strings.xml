@@ -11,6 +11,8 @@
     <string name="about"> (c) Necromant 2011  2012</string>
     <string name="site">http://ncrmnt.org/</string>
     <string name="contact">nettts@ncrmnt.org</string>
+    <string name="issue_tracker">https://github.com/nekromant/NetTTS/issues</string>
     <string name="sug">Mail bugs and suggestions here:</string>
     <string name="authtag">Auth tag (blank for none)</string>
+    <string name="pref_port">TCP port to run at:</string>
 </resources>
