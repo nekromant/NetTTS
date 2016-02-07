@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 
@@ -91,6 +93,25 @@ public class NetTTSService extends Service {
 
 							Log.d(TAG, "Got text: '" + str + "'");
 							String[] tokens = str.split(" ");
+							if (tokens[i].equals("/volume") && tokens.length >= 2) {
+								Log.d(TAG, "Requested a volume change to: "
+										+ tokens[i + 1]);
+								int volume = Integer.parseInt(tokens[i + 1]);
+								AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+								int amStreamMusicMaxVol = am.getStreamMaxVolume(am.STREAM_MUSIC);
+								am.setStreamVolume(am.STREAM_MUSIC, amStreamMusicMaxVol * volume / 100, 0);
+								str = in.readLine();
+								tokens = str.split(" ");
+							}
+							if (tokens[i].equals("/tone") && tokens.length >= 4) {
+								Log.d(TAG, "Requested a tone.");
+								int volume = Integer.parseInt(tokens[i + 1]);
+								int tone = Integer.parseInt(tokens[i + 2]);
+								int duration = Integer.parseInt(tokens[i + 3]);
+								ToneGenerator tg = new ToneGenerator(AudioManager.STREAM_MUSIC, volume);
+								tg.startTone(tone, duration);
+								str = "";
+							}
 							if (tokens[i].equals("/setlang")) {
 								Log.d(TAG, "Requested a language switch to: "
 										+ tokens[i + 1]);
