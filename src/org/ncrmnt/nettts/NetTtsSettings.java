@@ -62,6 +62,8 @@ private void LoadPrefs(){
     EditText loc = (EditText) findViewById(R.id.loc);
     loc.setText(sharedPreferences.getString("locale", "ru_RU"));
     
+    EditText authtag = (EditText) findViewById(R.id.authtag);
+    authtag.setText(sharedPreferences.getString("authtag", ""));
     
     CheckBox auto = (CheckBox) findViewById(R.id.autostart);
     String a = sharedPreferences.getString("autostart", "NO");
